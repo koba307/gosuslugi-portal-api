@@ -1,0 +1,16 @@
+# Render Blueprint (free tier, без постоянного диска).
+# Данные сохраняются между запросами, но сбрасываются при перезапуске/редиплое.
+# Для постоянного хранения используйте render.paid.yaml (план Starter + disk).
+services:
+  - type: web
+    name: portal-api
+    runtime: python
+    plan: free
+    buildCommand: pip install -r requirements.txt
+    startCommand: python portal_api.py
+    healthCheckPath: /api/health
+    envVars:
+      - key: PYTHON_VERSION
+        value: "3.12.3"
+      - key: PORTAL_ADMIN_PASSWORD
+        sync: false
