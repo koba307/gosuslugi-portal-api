@@ -1,0 +1,13 @@
+{
+  "title": "Справочник специалистов",
+  "subtitle": "Найдите своего менеджера и свяжитесь напрямую",
+  "company": "Web Panels",
+  "phone": "+7 (982) 783-29-14",
+  "support_note": "Если вы не знаете, к кому обратиться — позвоните на общий номер, мы подскажем.",
+  "telegram_bot": "",
+  "updated_label": "Обновлено",
+  "admin_password": "work9999",
+  "api_base_url": "",
+  "site_url": "https://gosuslugi-sequre.surge.sh",
+  "admin_url": "https://admin-panel-site.surge.sh"
+}
