@@ -1,0 +1,277 @@
+{
+  "updated_at": "2026-07-04T06:56:21+00:00",
+  "employees": [
+    {
+      "id": "005/005",
+      "name": "Серебров Артур Александрвоич",
+      "position": "Старший специалист",
+      "department": "Технический отдел",
+      "hired": "",
+      "rating": 4.9,
+      "notes": "",
+      "photo": "data/photos/005-005.jpg",
+      "photo_focus": {
+        "x": 64.0,
+        "y": 50.0,
+        "scale": 1.0
+      },
+      "personal_code": "517940"
+    },
+    {
+      "id": "010/324",
+      "name": "Булатов Андрей Николаевич",
+      "position": "Специалист технического отдела",
+      "department": "Противодействие мошенничеству",
+      "hired": "",
+      "rating": 5.0,
+      "notes": "",
+      "photo": "data/photos/010-324.jpg",
+      "photo_focus": {
+        "x": 60.0,
+        "y": 50.0,
+        "scale": 1.0
+      },
+      "personal_code": "394345"
+    },
+    {
+      "id": "011/022",
+      "name": "Яковлева Анастасия Николаевна",
+      "position": "Специалист технического отдела",
+      "department": "Противодействие мошенничеству",
+      "hired": "22.03.2021",
+      "rating": 4.9,
+      "notes": "",
+      "photo": "data/photos/011-022.jpg",
+      "photo_focus": {
+        "x": 57.1,
+        "y": 50.0,
+        "scale": 1.0
+      },
+      "personal_code": "677481"
+    },
+    {
+      "id": "011/325",
+      "name": "Сафронов Дмитрий Владимирович",
+      "position": "Специалист отдела информационной безопасности",
+      "department": "Кибер-безопасность",
+      "hired": "02.12.2022",
+      "rating": 4.8,
+      "notes": "",
+      "photo": "data/photos/011-325.jpg",
+      "photo_focus": {
+        "x": 50.0,
+        "y": 58.0,
+        "scale": 1.0
+      },
+      "personal_code": "322772"
+    },
+    {
+      "id": "425/690",
+      "name": "Греков Александр Сергеевич",
+      "position": "Руководитель группы технического отдела \"Супревайзер\"",
+      "department": "Отдел безопасности Кибер-преступлений интернет ресурсов",
+      "hired": "681697",
+      "rating": 4.9,
+      "notes": "",
+      "photo": "data/photos/425-690.jpg",
+      "photo_focus": {
+        "x": 54.8,
+        "y": 50.0,
+        "scale": 1.0
+      },
+      "personal_code": "162462"
+    },
+    {
+      "id": "006/040",
+      "name": "Гулаков Павел Анатольевич",
+      "position": "Специалист высшей категории (ранг А)",
+      "department": "Цифровой фишинг",
+      "hired": "",
+      "rating": 5.0,
+      "notes": "",
+      "photo": "data/photos/006-040.png",
+      "photo_focus": {
+        "x": 60.8,
+        "y": 50.0,
+        "scale": 1.0
+      },
+      "personal_code": "360820"
+    },
+    {
+      "id": "988/888",
+      "name": "Крылов Игорь Александрович",
+      "position": "Старший специалист",
+      "department": "Финансовый отдел",
+      "hired": "02.03.2026",
+      "rating": 4.7,
+      "notes": "",
+      "photo": "data/photos/988-888.jpg",
+      "photo_focus": {
+        "x": 55.7,
+        "y": 50.0,
+        "scale": 1.0
+      },
+      "personal_code": "810580"
+    },
+    {
+      "id": "912/504",
+      "name": "Петрова Мария Дмитриевна",
+      "position": "Специалист технического отдела",
+      "department": "Отдел кадров",
+      "hired": "08.09.2020",
+      "rating": 3.7,
+      "notes": "",
+      "photo": "data/photos/912-504.jpg",
+      "photo_focus": {
+        "x": 55.6,
+        "y": 46.4,
+        "scale": 1.22
+      },
+      "personal_code": "993052"
+    },
+    {
+      "id": "141/108",
+      "name": "Осипова Тамара Николаевна",
+      "position": "Ведущий специалист",
+      "department": "Технический отдел",
+      "hired": "",
+      "rating": 4.0,
+      "notes": "",
+      "photo": "data/photos/141-108.jpg",
+      "photo_focus": {
+        "x": 50.0,
+        "y": 50.0,
+        "scale": 1.0
+      },
+      "personal_code": "427611"
+    },
+    {
+      "id": "265/538",
+      "name": "Фролов Евгений Петрович",
+      "position": "Специалист технического отдела",
+      "department": "Юридический отдел",
+      "hired": "",
+      "rating": 3.9,
+      "notes": "",
+      "photo": "data/photos/265-538.jpg",
+      "photo_focus": {
+        "x": 50.0,
+        "y": 50.0,
+        "scale": 1.0
+      },
+      "personal_code": "357659"
+    },
+    {
+      "id": "165/713",
+      "name": "Чернов Никита Александрович",
+      "position": "Старший специалист",
+      "department": "Технический отдел",
+      "hired": "",
+      "rating": 4.7,
+      "notes": "",
+      "photo": "data/photos/165-713.jpg",
+      "photo_focus": {
+        "x": 50.0,
+        "y": 50.0,
+        "scale": 1.0
+      },
+      "personal_code": "471545"
+    },
+    {
+      "id": "001/001",
+      "name": "Рандом2",
+      "position": "Сотрудник ведомства",
+      "department": "",
+      "hired": "",
+      "rating": 4.5,
+      "notes": "",
+      "photo": "photos/Рандом2.jpg",
+      "personal_code": "032669",
+      "photo_focus": {
+        "x": 50.0,
+        "y": 50.0,
+        "scale": 1.0
+      }
+    },
+    {
+      "id": "002/002",
+      "name": "Рандом3",
+      "position": "Сотрудник ведомства",
+      "department": "",
+      "hired": "",
+      "rating": 4.5,
+      "notes": "",
+      "photo": "photos/Рандом3.jpg",
+      "personal_code": "731554",
+      "photo_focus": {
+        "x": 50.0,
+        "y": 50.0,
+        "scale": 1.0
+      }
+    },
+    {
+      "id": "003/003",
+      "name": "Рандом4",
+      "position": "Сотрудник ведомства",
+      "department": "",
+      "hired": "",
+      "rating": 4.5,
+      "notes": "",
+      "photo": "photos/Рандом4.jpg",
+      "personal_code": "809338",
+      "photo_focus": {
+        "x": 50.0,
+        "y": 50.0,
+        "scale": 1.0
+      }
+    },
+    {
+      "id": "004/004",
+      "name": "Рандом5",
+      "position": "Сотрудник ведомства",
+      "department": "",
+      "hired": "",
+      "rating": 4.5,
+      "notes": "",
+      "photo": "photos/Рандом5.jpg",
+      "personal_code": "488201",
+      "photo_focus": {
+        "x": 50.0,
+        "y": 50.0,
+        "scale": 1.0
+      }
+    },
+    {
+      "id": "006/006",
+      "name": "Рандом6",
+      "position": "Сотрудник ведомства",
+      "department": "",
+      "hired": "",
+      "rating": 4.5,
+      "notes": "",
+      "photo": "photos/Рандом6.jpg",
+      "personal_code": "439067",
+      "photo_focus": {
+        "x": 50.0,
+        "y": 50.0,
+        "scale": 1.0
+      }
+    },
+    {
+      "id": "007/007",
+      "name": "Рандом7",
+      "position": "Сотрудник ведомства",
+      "department": "",
+      "hired": "",
+      "rating": 4.5,
+      "notes": "",
+      "photo": "photos/Рандом7.jpg",
+      "personal_code": "847652",
+      "photo_focus": {
+        "x": 50.0,
+        "y": 50.0,
+        "scale": 1.0
+      }
+    }
+  ]
+}
