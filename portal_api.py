@@ -904,7 +904,7 @@ def main() -> None:
     server = ThreadingHTTPServer(("0.0.0.0", port), PortalAPIHandler)
     print(f"✓ Портал: http://localhost:{port}/index.html")
     print(f"  Ведомства: http://localhost:{port}/verification.html")
-    print(f"  Админка: http://localhost:{port}/admin.html (синхронизация с сайтом автоматически)")
+    #print(f"  Админка: http://localhost:{port}/admin.html (синхронизация с сайтом автоматически)")
     print(f"  API: http://localhost:{port}/api/employees")
     try:
         server.serve_forever()
