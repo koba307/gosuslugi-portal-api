@@ -1,4 +1,8 @@
-# Fly.io deploy from GitHub
+# fly.toml app configuration file generated for gosuslugi-portal-api on 2026-07-09T20:57:32Z
+#
+# See https://fly.io/docs/reference/configuration/ for information about how to use this file.
+#
+
 app = "gosuslugi-portal-api"
 primary_region = "fra"
 
@@ -11,9 +15,10 @@ primary_region = "fra"
 [http_service]
   internal_port = 8080
   force_https = true
-  auto_stop_machines = "stop"
+  auto_stop_machines = true
   auto_start_machines = true
   min_machines_running = 0
+  checks = [{ grace_period = '20s', interval = '30s', method = 'GET', path = '/api/health', timeout = '5s' }]
 
   [[http_service.checks]]
     grace_period = "20s"
@@ -25,3 +30,6 @@ primary_region = "fra"
 [mounts]
   source = "portal_data"
   destination = "/data"
+
+[processes]
+  app = ''
