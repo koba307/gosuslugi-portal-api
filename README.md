@@ -1,32 +1,64 @@
-# Gosuslugi Portal API
+# Gosuslugi Portal
 
-REST API для реестра сотрудников. Деплой на **Fly.io** из GitHub.
+Полный портал: **фронт + REST API** реестра сотрудников.  
+Боевой URL: **https://gosuslugi.fly.dev**
 
-## Репозиторий (публичный)
+Репозиторий: https://github.com/koba307/gosuslugi-portal-api  
+Аккаунт GitHub: **koba307** · Fly app: **`gosuslugi`**
 
-https://github.com/koba307/gosuslugi-portal-api
+## Состав
 
-Аккаунт GitHub: **koba307**
+| Путь | Назначение |
+|------|------------|
+| `portal_api.py` | API + статический сервер |
+| `index.html` | Публичный портал |
+| `admin.html` | Админ-панель |
+| `verification.html` | Ведомства / проверка |
+| `data/` | Стартовые данные (боевые — на Fly volume `/data`) |
+| `fly.toml` | Конфиг Fly (`app = gosuslugi`) |
 
-## Fly.io — деплой из GitHub
+## Страницы
 
-1. https://fly.io/dashboard → **Create app** → **Deploy from GitHub**
-2. Подключите GitHub-аккаунт **koba307**
-3. Выберите репозиторий **gosuslugi-portal-api**
-4. В терминале:
+- Сайт: https://gosuslugi.fly.dev/
+- Админка: https://gosuslugi.fly.dev/admin.html
+- Ведомства: https://gosuslugi.fly.dev/verification.html
+- Health: https://gosuslugi.fly.dev/api/health
+- API: https://gosuslugi.fly.dev/api/employees
+
+## Локальный запуск
 
 ```bash
-fly volumes create portal_data --size 1 --region ams
-fly secrets set PORTAL_ADMIN_PASSWORD=work9999
-fly deploy
+python portal_api.py
+# http://localhost:8780/
 ```
 
-5. URL API: `https://ИМЯ-ПРИЛОЖЕНИЯ.fly.dev`
-6. Проверка: `/api/health`
+## Деплой на Fly.io
 
-## После деплоя API
+App: **gosuslugi** · регион volume: **ams** · машина **всегда online** (`min_machines_running = 1`, `auto_stop_machines = off`).
 
-```powershell
-.\set-api-url.ps1 -ApiUrl https://ИМЯ-ПРИЛОЖЕНИЯ.fly.dev
-.\deploy-all.bat
+```bash
+# один раз (если volume ещё нет)
+fly volumes create portal_data --size 1 --region ams -a gosuslugi
+
+fly secrets set PORTAL_ADMIN_PASSWORD='***' -a gosuslugi
+fly deploy -a gosuslugi
 ```
+
+Проверка:
+
+```bash
+curl https://gosuslugi.fly.dev/api/health
+```
+
+## Конфиг
+
+`config.json`:
+
+- `api_base_url` / `site_url` → `https://gosuslugi.fly.dev`
+- `admin_url` → `https://gosuslugi.fly.dev/admin.html`
+- пароль админа лучше через secret `PORTAL_ADMIN_PASSWORD`
+
+## Важно
+
+- Volume `portal_data` хранит `employees.json`, фото, verification — **не удалять** при деплое.
+- Фото в git могут отсутствовать; на проде они в volume.

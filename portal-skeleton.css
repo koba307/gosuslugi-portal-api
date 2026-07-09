@@ -1,0 +1,170 @@
+.portal-root {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.portal-root .main {
+  flex: 1 0 auto;
+  background: #fafcff;
+}
+
+
+
+.portal-root .main-page-catalog-wrap {
+  padding-bottom: 8px;
+}
+
+.portal-root .categories {
+  gap: 4px;
+  overflow-x: auto;
+  padding: 12px 0 8px;
+}
+
+.portal-root .category {
+  min-width: 88px;
+  color: #fff;
+  padding: 8px 6px;
+  border-radius: 8px;
+}
+
+.portal-root .category.is-active,
+.portal-root .category:hover {
+  background: rgba(255, 255, 255, 0.14);
+}
+
+.portal-root .category figure {
+  width: 33px;
+  height: 33px;
+  background-color: #fff;
+  mask-size: contain;
+  mask-repeat: no-repeat;
+  mask-position: center;
+}
+
+.portal-root .small-text {
+  font-size: 12px;
+  line-height: 14px;
+}
+
+
+
+.portal-root .footer-wrapper {
+  background: #eff5f9;
+  padding: 32px 0;
+  width: 100%;
+  max-width: 100%;
+  overflow-x: clip;
+}
+
+.portal-root .social-link {
+  display: inline-flex;
+  width: 40px;
+  height: 40px;
+  position: relative;
+}
+
+.portal-root .social-link .hover {
+  display: none;
+  position: absolute;
+  inset: 0;
+}
+
+.portal-root .social-link:hover .main-ico {
+  display: none;
+}
+
+.portal-root .social-link:hover .hover {
+  display: block;
+}
+
+.portal-root .location-select figure {
+  width: 24px;
+  height: 24px;
+  background: #66727f;
+  mask-image: url("https://gu-st.ru/portal-st/lib-assets/svg/defaults/navigation.svg");
+  mask-size: contain;
+  mask-repeat: no-repeat;
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.portal-root .link-plain {
+  color: #0b1f33;
+  font-size: 16px;
+  line-height: 24px;
+}
+
+.portal-root .login-button {
+  color: #0d4cd3;
+  font-weight: 600;
+}
+
+.portal-root .container-d {
+  width: min(1216px, calc(100% - 32px));
+  margin: 0 auto;
+}
+
+.portal-root .grid-row-d {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  gap: 16px;
+}
+
+.portal-root .col-d-lg-3 { grid-column: span 3; }
+.portal-root .col-d-lg-6 { grid-column: span 6; }
+.portal-root .col-d-lg-8 { grid-column: span 8; }
+.portal-root .col-d-lg-10 { grid-column: span 10; }
+.portal-root .col-d-lg-12 { grid-column: span 12; }
+.portal-root .push-d-lg-1 { grid-column-start: 2; }
+.portal-root .push-d-lg-2 { grid-column-start: 3; }
+
+.portal-stub-toast {
+  position: fixed;
+  left: 24px;
+  bottom: 24px;
+  z-index: 99999;
+  max-width: 420px;
+  padding: 14px 18px;
+  border-radius: 8px;
+  background: #4d83fa;
+  color: #fff;
+  font: 14px/20px Lato, Arial, sans-serif;
+  box-shadow: 0 12px 32px rgba(13, 76, 211, 0.25);
+  opacity: 0;
+  transform: translateY(12px);
+  transition: 0.2s ease;
+  pointer-events: none;
+}
+
+.portal-stub-toast.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@media (max-width: 767px) {
+  .portal-root .hide-md {
+    display: none !important;
+  }
+
+  .portal-root .grid-row-d {
+    gap: 16px;
+  }
+
+  .portal-root .col-d-lg-3,
+  .portal-root .col-d-lg-6,
+  .portal-root .col-d-lg-8,
+  .portal-root .col-d-lg-10,
+  .portal-root .col-d-lg-12,
+  .portal-root .push-d-lg-1,
+  .portal-root .push-d-lg-2 {
+    grid-column: span 12;
+    grid-column-start: auto;
+    min-width: 0;
+  }
+
+  #footer-wrapper .col-d-lg-3 {
+    grid-column: auto;
+    grid-column-start: auto;
+  }
+}

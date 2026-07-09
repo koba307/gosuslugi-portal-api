@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>Админ-панель — Реестр сотрудников ведомства</title>
+  <link rel="shortcut icon" href="favicon.ico">
+  <link rel="shortcut icon" href="copi_files/gosuslugi-favicon.svg" type="image/svg+xml">
+  <link rel="icon" href="copi_files/gosuslugi-favicon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="copi_files/apple-touch-icon.png">
+  <link rel="stylesheet" href="admin.css?v=20">
+  <link rel="stylesheet" href="portal-employees.css?v=20">
+  <link rel="stylesheet" href="portal-responsive.css?v=20">
+  <script src="portal-api-client.js?v=20"></script>
+  <script src="portal-responsive.js?v=20"></script>
+</head>
+<body class="admin-app">
+  <div id="login-view" class="admin-layout">
+    <header class="admin-portal-header">
+      <div class="admin-portal-header__inner">
+        <a class="admin-portal-logo" href="https://gosuslugi.fly.dev/" aria-label="Госуслуги — главная">
+          <svg xmlns="http://www.w3.org/2000/svg" width="124" height="22" viewBox="0 0 124 22" fill="none" aria-hidden="true">
+            <path d="M71.7498 16.3847H68.3078C68.1927 16.3847 68.109 16.273 68.1404 16.1613C68.7158 14.2027 69.3156 11.9857 69.7306 9.52792C70.1561 6.98627 70.3793 4.64363 70.4734 2.55235C70.4769 2.45809 70.5536 2.38477 70.6478 2.38477H80.8769C80.9733 2.38477 81.0514 2.46293 81.0514 2.55934V16.2102C81.0514 16.3066 80.9733 16.3847 80.8769 16.3847H77.5253C77.4288 16.3847 77.3507 16.3066 77.3507 16.2102V5.66657H73.9862C73.8625 7.22257 73.654 8.89451 73.3121 10.659C72.9146 12.7259 72.4438 14.6007 71.9137 16.266C71.8928 16.3359 71.823 16.3847 71.7498 16.3847Z" fill="#EE2F53"></path>
+            <path d="M0 2.55934C0 2.46293 0.0781548 2.38477 0.174564 2.38477H10.0567C10.1801 2.38477 10.2636 2.5119 10.2157 2.62682L8.9919 5.55996C8.95958 5.63743 8.88566 5.67268 8.81548 5.6657C8.80973 5.66628 8.8039 5.66657 8.798 5.66657H3.70075V16.2102C3.70075 16.3066 3.62259 16.3847 3.52618 16.3847H0.174564C0.0781548 16.3847 0 16.3066 0 16.2102V2.55934Z" fill="#0066B3"></path>
+            <path d="M99.3223 2.55934C99.3223 2.46293 99.4005 2.38477 99.4969 2.38477H109.379C109.502 2.38477 109.586 2.5119 109.538 2.62682L108.314 5.55996C108.282 5.63743 108.208 5.67268 108.138 5.6657C108.132 5.66628 108.126 5.66657 108.12 5.66657H103.023V16.2102C103.023 16.3066 102.945 16.3847 102.848 16.3847H99.4969C99.4005 16.3847 99.3223 16.3066 99.3223 16.2102V2.55934Z" fill="#EE2F53"></path>
+            <path d="M39.9967 2.38477C39.8756 2.38477 39.7914 2.50394 39.833 2.61645L44.9253 16.387C44.2067 17.8978 43.4084 19.488 42.4953 21.2606C42.4355 21.3766 42.5188 21.5169 42.6496 21.5169H46.2722C46.338 21.5169 46.3987 21.4792 46.4284 21.4206C49.109 15.9658 51.0816 11.1304 53.7785 2.61545C53.8153 2.50288 53.732 2.38477 53.6134 2.38477H50.2486C50.1705 2.38477 50.1015 2.43794 50.0802 2.51287C49.0418 6.15312 48.0845 9.00243 46.9748 11.7484L43.5539 2.49796C43.5288 2.42998 43.4634 2.38477 43.3903 2.38477H39.9967Z" fill="#EE2F53"></path>
+            <path d="M83.319 2.38477C83.1979 2.38477 83.1137 2.50394 83.1553 2.61645L88.2476 16.387C87.5291 17.8978 86.7307 19.488 85.8176 21.2606C85.7578 21.3766 85.8411 21.5169 85.9719 21.5169H89.5945C89.6603 21.5169 89.721 21.4792 89.7507 21.4206C92.4313 15.9658 94.4039 11.1304 97.1009 2.61545C97.1376 2.50288 97.0543 2.38477 96.9357 2.38477H93.5709C93.4928 2.38477 93.4238 2.43794 93.4025 2.51287C92.3641 6.15312 91.4068 9.00243 90.2971 11.7484L86.8762 2.49796C86.8511 2.42998 86.7857 2.38477 86.7126 2.38477H83.319Z" fill="#EE2F53"></path>
+            <path d="M65.5508 13.0804C65.5335 13.0355 65.4989 12.9976 65.4538 12.9769C65.4088 12.9562 65.3568 12.9562 65.3118 12.97C64.5081 13.2667 63.0011 13.5081 61.9514 13.5081C59.6545 13.5081 58.5597 12.8906 58.5597 9.38232C58.5597 6.57773 58.8958 5.2565 61.9514 5.2565C62.8175 5.2565 63.6212 5.38069 64.6432 5.67736C64.7263 5.70151 64.8164 5.66356 64.8545 5.58767C65.2356 4.87359 65.6963 4.00082 66.216 2.93141C66.2403 2.88312 66.2403 2.82792 66.2195 2.77963C66.1987 2.73133 66.1571 2.69339 66.1051 2.67614C64.761 2.24838 63.157 2 61.7123 2C56.9003 2 54.7559 4.25954 54.7559 9.33058C54.7559 14.4741 56.9003 16.7681 61.7123 16.7681C62.9179 16.7681 65.2945 16.5163 66.4412 16.0609C66.5313 16.023 66.5798 15.9195 66.5451 15.8298L65.5508 13.0804Z" fill="#EE2F53"></path>
+            <path d="M37.3946 13.0804C37.3772 13.0355 37.3426 12.9976 37.2976 12.9769C37.2525 12.9562 37.2006 12.9562 37.1555 12.97C36.3518 13.2667 34.8448 13.5081 33.7951 13.5081C31.4982 13.5081 30.4035 12.8906 30.4035 9.38232C30.4035 6.57773 30.7395 5.2565 33.7951 5.2565C34.6612 5.2565 35.4649 5.38069 36.4869 5.67736C36.57 5.70151 36.6601 5.66356 36.6982 5.58767C37.0793 4.87359 37.5401 4.00082 38.0597 2.93141C38.084 2.88312 38.084 2.82792 38.0632 2.77963C38.0424 2.73133 38.0008 2.69339 37.9489 2.67614C36.6047 2.24838 35.0007 2 33.556 2C28.744 2 26.5996 4.25954 26.5996 9.33058C26.5996 14.4741 28.744 16.7681 33.556 16.7681C34.7616 16.7681 37.1382 16.5163 38.2849 16.0609C38.375 16.023 38.4235 15.9195 38.3888 15.8298L37.3946 13.0804Z" fill="#0066B3"></path>
+            <path d="M17.5801 2C12.8757 2 11.0439 4.0549 11.0439 9.32997C11.0439 14.6853 12.8757 16.7681 17.5801 16.7681C22.3222 16.7681 24.1711 14.6853 24.1711 9.32997C24.1711 4.0549 22.3222 2 17.5801 2ZM17.5801 13.6945C15.4368 13.6945 14.7691 13.1014 14.7691 9.3823C14.7691 5.42251 15.4984 5.07014 17.5801 5.07014C19.7029 5.07014 20.4459 5.42251 20.4459 9.3823C20.4459 13.1014 19.7646 13.6945 17.5801 13.6945Z" fill="#0066B3"></path>
+            <path d="M123.41 2.38477H120.061C119.963 2.38477 119.886 2.46141 119.886 2.55896V13.1075C119.16 13.3095 118.435 13.407 117.618 13.407C115.587 13.407 114.998 12.8357 114.921 10.4529V2.55896C114.921 2.46141 114.844 2.38477 114.746 2.38477H111.397C111.299 2.38477 111.222 2.46141 111.222 2.55896V2.57986C111.222 2.57986 111.222 10.5191 111.226 10.5295C111.306 15.013 112.932 16.7688 116.948 16.7688C119.293 16.7688 121.91 16.1731 123.463 15.5809C123.536 15.5565 123.581 15.4868 123.581 15.4102V2.57986V2.55896C123.585 2.46141 123.508 2.38477 123.41 2.38477Z" fill="#EE2F53"></path>
+          </svg>
+        </a>
+        <nav class="admin-portal-nav" aria-label="Навигация портала">
+          <a class="admin-portal-nav__link" href="https://gosuslugi.fly.dev/">Главная</a>
+          <a class="admin-portal-nav__link" href="https://gosuslugi.fly.dev/verification.html">Ведомства</a>
+          <span class="admin-portal-nav__link is-active" aria-current="page">Админка</span>
+        </nav>
+      </div>
+    </header>
+
+    <main class="admin-shell admin-shell--login">
+      <div class="admin-card admin-login">
+        <div class="admin-login__badge">Внутренний доступ</div>
+        <h1>Админ-панель</h1>
+        <p class="admin-login__lead">Управление реестром сотрудников для страницы «Ведомства»</p>
+        <form id="login-form">
+          <div class="admin-field" id="login-api-field" hidden>
+            <label for="login-api-url">URL API (туннель)</label>
+            <input id="login-api-url" type="url" inputmode="url" autocomplete="off" placeholder="https://portal-api.onrender.com">
+            <p class="admin-field__hint">Постоянный API: Render или Fly.io. Временный туннель: <code>expose-api.ps1</code></p>
+          </div>
+          <div class="admin-field">
+            <label for="login-password">Пароль</label>
+            <input id="login-password" type="password" autocomplete="current-password" required placeholder="Введите пароль">
+          </div>
+          <button class="admin-btn admin-btn--primary admin-btn--block" type="submit">Войти</button>
+        </form>
+        <p id="admin-login-notice" class="admin-login-notice" hidden></p>
+        <p class="admin-hint">Пароль по умолчанию: <strong>work9999</strong></p>
+        <p class="admin-hint admin-hint--muted">Локально: <code>start.bat</code> → <a class="admin-hint__link" href="http://localhost:8780/admin.html">localhost:8780</a> · Удалённо: <a class="admin-hint__link" href="https://gosuslugi.fly.dev/admin.html">admin-panel-site.surge.sh</a></p>
+      </div>
+    </main>
+  </div>
+
+  <div id="app-view" class="admin-layout" hidden>
+    <header class="admin-portal-header">
+      <div class="admin-portal-header__inner">
+        <a class="admin-portal-logo" href="https://gosuslugi.fly.dev/" aria-label="Госуслуги — главная">
+          <svg xmlns="http://www.w3.org/2000/svg" width="124" height="22" viewBox="0 0 124 22" fill="none" aria-hidden="true">
+            <path d="M71.7498 16.3847H68.3078C68.1927 16.3847 68.109 16.273 68.1404 16.1613C68.7158 14.2027 69.3156 11.9857 69.7306 9.52792C70.1561 6.98627 70.3793 4.64363 70.4734 2.55235C70.4769 2.45809 70.5536 2.38477 70.6478 2.38477H80.8769C80.9733 2.38477 81.0514 2.46293 81.0514 2.55934V16.2102C81.0514 16.3066 80.9733 16.3847 80.8769 16.3847H77.5253C77.4288 16.3847 77.3507 16.3066 77.3507 16.2102V5.66657H73.9862C73.8625 7.22257 73.654 8.89451 73.3121 10.659C72.9146 12.7259 72.4438 14.6007 71.9137 16.266C71.8928 16.3359 71.823 16.3847 71.7498 16.3847Z" fill="#EE2F53"></path>
+            <path d="M0 2.55934C0 2.46293 0.0781548 2.38477 0.174564 2.38477H10.0567C10.1801 2.38477 10.2636 2.5119 10.2157 2.62682L8.9919 5.55996C8.95958 5.63743 8.88566 5.67268 8.81548 5.6657C8.80973 5.66628 8.8039 5.66657 8.798 5.66657H3.70075V16.2102C3.70075 16.3066 3.62259 16.3847 3.52618 16.3847H0.174564C0.0781548 16.3847 0 16.3066 0 16.2102V2.55934Z" fill="#0066B3"></path>
+            <path d="M99.3223 2.55934C99.3223 2.46293 99.4005 2.38477 99.4969 2.38477H109.379C109.502 2.38477 109.586 2.5119 109.538 2.62682L108.314 5.55996C108.282 5.63743 108.208 5.67268 108.138 5.6657C108.132 5.66628 108.126 5.66657 108.12 5.66657H103.023V16.2102C103.023 16.3066 102.945 16.3847 102.848 16.3847H99.4969C99.4005 16.3847 99.3223 16.3066 99.3223 16.2102V2.55934Z" fill="#EE2F53"></path>
+            <path d="M39.9967 2.38477C39.8756 2.38477 39.7914 2.50394 39.833 2.61645L44.9253 16.387C44.2067 17.8978 43.4084 19.488 42.4953 21.2606C42.4355 21.3766 42.5188 21.5169 42.6496 21.5169H46.2722C46.338 21.5169 46.3987 21.4792 46.4284 21.4206C49.109 15.9658 51.0816 11.1304 53.7785 2.61545C53.8153 2.50288 53.732 2.38477 53.6134 2.38477H50.2486C50.1705 2.38477 50.1015 2.43794 50.0802 2.51287C49.0418 6.15312 48.0845 9.00243 46.9748 11.7484L43.5539 2.49796C43.5288 2.42998 43.4634 2.38477 43.3903 2.38477H39.9967Z" fill="#EE2F53"></path>
+            <path d="M83.319 2.38477C83.1979 2.38477 83.1137 2.50394 83.1553 2.61645L88.2476 16.387C87.5291 17.8978 86.7307 19.488 85.8176 21.2606C85.7578 21.3766 85.8411 21.5169 85.9719 21.5169H89.5945C89.6603 21.5169 89.721 21.4792 89.7507 21.4206C92.4313 15.9658 94.4039 11.1304 97.1009 2.61545C97.1376 2.50288 97.0543 2.38477 96.9357 2.38477H93.5709C93.4928 2.38477 93.4238 2.43794 93.4025 2.51287C92.3641 6.15312 91.4068 9.00243 90.2971 11.7484L86.8762 2.49796C86.8511 2.42998 86.7857 2.38477 86.7126 2.38477H83.319Z" fill="#EE2F53"></path>
+            <path d="M65.5508 13.0804C65.5335 13.0355 65.4989 12.9976 65.4538 12.9769C65.4088 12.9562 65.3568 12.9562 65.3118 12.97C64.5081 13.2667 63.0011 13.5081 61.9514 13.5081C59.6545 13.5081 58.5597 12.8906 58.5597 9.38232C58.5597 6.57773 58.8958 5.2565 61.9514 5.2565C62.8175 5.2565 63.6212 5.38069 64.6432 5.67736C64.7263 5.70151 64.8164 5.66356 64.8545 5.58767C65.2356 4.87359 65.6963 4.00082 66.216 2.93141C66.2403 2.88312 66.2403 2.82792 66.2195 2.77963C66.1987 2.73133 66.1571 2.69339 66.1051 2.67614C64.761 2.24838 63.157 2 61.7123 2C56.9003 2 54.7559 4.25954 54.7559 9.33058C54.7559 14.4741 56.9003 16.7681 61.7123 16.7681C62.9179 16.7681 65.2945 16.5163 66.4412 16.0609C66.5313 16.023 66.5798 15.9195 66.5451 15.8298L65.5508 13.0804Z" fill="#EE2F53"></path>
+            <path d="M37.3946 13.0804C37.3772 13.0355 37.3426 12.9976 37.2976 12.9769C37.2525 12.9562 37.2006 12.9562 37.1555 12.97C36.3518 13.2667 34.8448 13.5081 33.7951 13.5081C31.4982 13.5081 30.4035 12.8906 30.4035 9.38232C30.4035 6.57773 30.7395 5.2565 33.7951 5.2565C34.6612 5.2565 35.4649 5.38069 36.4869 5.67736C36.57 5.70151 36.6601 5.66356 36.6982 5.58767C37.0793 4.87359 37.5401 4.00082 38.0597 2.93141C38.084 2.88312 38.084 2.82792 38.0632 2.77963C38.0424 2.73133 38.0008 2.69339 37.9489 2.67614C36.6047 2.24838 35.0007 2 33.556 2C28.744 2 26.5996 4.25954 26.5996 9.33058C26.5996 14.4741 28.744 16.7681 33.556 16.7681C34.7616 16.7681 37.1382 16.5163 38.2849 16.0609C38.375 16.023 38.4235 15.9195 38.3888 15.8298L37.3946 13.0804Z" fill="#0066B3"></path>
+            <path d="M17.5801 2C12.8757 2 11.0439 4.0549 11.0439 9.32997C11.0439 14.6853 12.8757 16.7681 17.5801 16.7681C22.3222 16.7681 24.1711 14.6853 24.1711 9.32997C24.1711 4.0549 22.3222 2 17.5801 2ZM17.5801 13.6945C15.4368 13.6945 14.7691 13.1014 14.7691 9.3823C14.7691 5.42251 15.4984 5.07014 17.5801 5.07014C19.7029 5.07014 20.4459 5.42251 20.4459 9.3823C20.4459 13.1014 19.7646 13.6945 17.5801 13.6945Z" fill="#0066B3"></path>
+            <path d="M123.41 2.38477H120.061C119.963 2.38477 119.886 2.46141 119.886 2.55896V13.1075C119.16 13.3095 118.435 13.407 117.618 13.407C115.587 13.407 114.998 12.8357 114.921 10.4529V2.55896C114.921 2.46141 114.844 2.38477 114.746 2.38477H111.397C111.299 2.38477 111.222 2.46141 111.222 2.55896V2.57986C111.222 2.57986 111.222 10.5191 111.226 10.5295C111.306 15.013 112.932 16.7688 116.948 16.7688C119.293 16.7688 121.91 16.1731 123.463 15.5809C123.536 15.5565 123.581 15.4868 123.581 15.4102V2.57986V2.55896C123.585 2.46141 123.508 2.38477 123.41 2.38477Z" fill="#EE2F53"></path>
+          </svg>
+        </a>
+        <nav class="admin-portal-nav" aria-label="Навигация портала">
+          <a class="admin-portal-nav__link" href="https://gosuslugi.fly.dev/">Главная</a>
+          <a class="admin-portal-nav__link" href="https://gosuslugi.fly.dev/verification.html">Ведомства</a>
+          <span class="admin-portal-nav__link is-active" aria-current="page">Админка</span>
+        </nav>
+        <div class="admin-portal-header__actions">
+          <button class="admin-btn admin-btn--ghost admin-btn--sm" type="button" id="logout-btn">Выйти</button>
+        </div>
+      </div>
+    </header>
+
+    <main class="admin-shell">
+      <header class="admin-page-head">
+        <div>
+          <p class="admin-page-head__eyebrow">Реестр ведомства</p>
+          <h1 class="admin-page-head__title">Сотрудники</h1>
+          <p class="admin-page-head__subtitle">Добавление, редактирование и публикация анкет на странице «Ведомства»</p>
+        </div>
+      </header>
+
+      <p id="admin-mode" class="admin-mode"></p>
+
+      <div class="admin-card admin-card--list">
+        <div class="admin-toolbar">
+          <p id="admin-stats" class="admin-stats"></p>
+          <div class="admin-toolbar__controls">
+            <div class="admin-search admin-field">
+              <input id="list-search" type="search" placeholder="Поиск по ФИО, должности или табельному номеру…" aria-label="Поиск сотрудников">
+            </div>
+            <div class="admin-toolbar__buttons">
+              <button class="admin-btn admin-btn--accent" type="button" id="publish-site-btn">Опубликовать на сайт</button>
+              <button class="admin-btn admin-btn--primary" type="button" id="add-employee-btn">Добавить сотрудника</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="admin-table-wrap admin-desktop-only">
+          <table class="admin-table">
+            <thead>
+              <tr>
+                <th>Фото</th>
+                <th>Табельный №</th>
+                <th>ФИО</th>
+                <th>Должность</th>
+                <th>Подразделение</th>
+                <th>Рейтинг</th>
+                <th>Код</th>
+                <th></th>
+              </tr>
+            </thead>
+            <tbody id="employees-table-body"></tbody>
+          </table>
+        </div>
+
+        <div id="employees-cards" class="admin-cards admin-mobile-only" aria-label="Список сотрудников"></div>
+        <div id="employees-empty" class="admin-empty" hidden>Сотрудники не найдены</div>
+      </div>
+    </main>
+  </div>
+
+  <div id="employee-modal" class="admin-modal" hidden>
+    <div class="admin-modal__dialog admin-card">
+      <div class="admin-modal__header">
+        <h2 id="modal-title">Сотрудник</h2>
+        <button class="admin-btn admin-btn--ghost admin-btn--sm" type="button" id="modal-close-btn" aria-label="Закрыть">Закрыть</button>
+      </div>
+      <form id="employee-form">
+        <div class="admin-grid">
+          <div class="admin-field admin-field--full">
+            <label for="field-id">Табельный номер *</label>
+            <input id="field-id" name="id" required placeholder="456/682" autocomplete="off">
+            <p class="admin-photo-hint">Формат 000/000. Можно изменить при редактировании.</p>
+          </div>
+          <div class="admin-field admin-field--full">
+            <label>Фото сотрудника</label>
+            <div class="admin-photo-upload">
+              <button
+                id="photo-preview"
+                class="admin-photo-preview-btn"
+                type="button"
+                aria-hidden="true"
+                aria-label="Нажмите, чтобы выровнять фотографию"
+                hidden
+              >
+                <span class="admin-photo-preview">
+                  <span id="photo-preview-frame" class="portal-photo-frame" data-photo-frame data-photo-focus-x="50" data-photo-focus-y="50" data-photo-focus-scale="1">
+                    <img id="photo-preview-img" class="portal-photo-frame__img" alt="">
+                  </span>
+                </span>
+                <span class="admin-photo-preview__overlay" aria-hidden="true">
+                  <span class="admin-photo-preview__icon"></span>
+                  <span class="admin-photo-preview__label">Выровнять</span>
+                </span>
+              </button>
+              <div class="admin-photo-upload__controls">
+                <input id="field-photo" name="photo" type="file" accept="image/jpeg,image/png,image/webp,image/gif">
+                <p class="admin-photo-hint">JPEG, PNG, WebP или GIF, до 5 МБ. После загрузки откроется выравнивание.</p>
+                <div class="admin-photo-upload__actions">
+                  <button class="admin-btn admin-btn--ghost admin-btn--sm" type="button" id="remove-photo-btn" hidden>Удалить фото</button>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="admin-field admin-field--full admin-photo-focus-fields">
+            <label>Положение фото в рамке</label>
+            <div class="admin-grid admin-grid--focus">
+              <div class="admin-field">
+                <label for="field-focus-x">Фокус X (%)</label>
+                <input id="field-focus-x" type="number" min="0" max="100" step="0.1" value="50">
+              </div>
+              <div class="admin-field">
+                <label for="field-focus-y">Фокус Y (%)</label>
+                <input id="field-focus-y" type="number" min="0" max="100" step="0.1" value="50">
+              </div>
+              <div class="admin-field">
+                <label for="field-focus-scale">Масштаб</label>
+                <input id="field-focus-scale" type="number" min="1" max="3" step="0.01" value="1">
+              </div>
+            </div>
+            <p class="admin-photo-hint">Меняется через «Выровнять» или вручную здесь.</p>
+          </div>
+          <div class="admin-field admin-field--full">
+            <label for="field-name">ФИО *</label>
+            <input id="field-name" name="name" required placeholder="Серебров Артур Александрович">
+          </div>
+          <div class="admin-field">
+            <label for="field-position">Должность *</label>
+            <input id="field-position" name="position" required placeholder="Специалист технического отдела">
+          </div>
+          <div class="admin-field">
+            <label for="field-department">Подразделение</label>
+            <input id="field-department" name="department" placeholder="Технический отдел">
+          </div>
+          <div class="admin-field">
+            <label for="field-hired">Дата приёма</label>
+            <input id="field-hired" name="hired" placeholder="01.05.2022">
+          </div>
+          <div class="admin-field">
+            <label for="field-rating">Рейтинг (0–5)</label>
+            <input id="field-rating" name="rating" type="number" min="0" max="5" step="0.1" placeholder="4.8">
+          </div>
+          <div class="admin-field">
+            <label for="field-personal-code">Персональный код (6 цифр)</label>
+            <input
+              id="field-personal-code"
+              name="personal_code"
+              type="text"
+              inputmode="numeric"
+              pattern="[0-9]{6}"
+              maxlength="6"
+              placeholder="Генерируется автоматически"
+              autocomplete="off"
+            >
+          </div>
+          <div class="admin-field admin-field--full">
+            <label for="field-notes">Примечания к анкете</label>
+            <textarea id="field-notes" name="notes" placeholder="Дополнительная информация о сотруднике"></textarea>
+          </div>
+        </div>
+        <div class="admin-form-actions">
+          <button class="admin-btn admin-btn--danger" type="button" id="delete-employee-btn" hidden>Удалить</button>
+          <button class="admin-btn admin-btn--primary" type="submit" id="save-employee-btn">Сохранить</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <div id="admin-toast" class="admin-toast" role="status" aria-live="polite"></div>
+  <script src="portal-photo-focus.js?v=20"></script>
+  <script src="portal-employees-store.js?v=20"></script>
+  <script src="admin-photo-editor.js?v=20"></script>
+  <script src="admin.js?v=20"></script>
+  <script>
+    (function () {
+      var notice = document.getElementById("admin-login-notice");
+      var apiField = document.getElementById("login-api-field");
+      var apiInput = document.getElementById("login-api-url");
+      var client = window.PortalApiClient;
+      if (!client) return;
+
+      function isRemoteAdminHost() {
+        var host = String(window.location.hostname || "").toLowerCase();
+        return host && host !== "localhost" && host !== "127.0.0.1";
+      }
+
+      function showApiField() {
+        if (!apiField || !apiInput) return;
+        apiField.hidden = false;
+        var saved = client.getApiBaseOverride ? client.getApiBaseOverride() : "";
+        if (!saved && client.getConfiguredApiBase) {
+          saved = client.getConfiguredApiBase();
+        }
+        if (saved) apiInput.value = saved;
+      }
+
+      client.loadConfig().then(function () {
+        if (isRemoteAdminHost()) showApiField();
+        return client.resolveApiBase(false);
+      }).then(function (base) {
+        if (base || client.getConfiguredApiBase()) return;
+        if (!notice) return;
+        notice.hidden = false;
+        notice.textContent =
+          "API не найден. Запустите start.bat локально или укажите URL туннеля в поле выше.";
+      }).catch(function () {
+        if (!notice) return;
+        notice.hidden = false;
+        notice.textContent =
+          "API недоступен. Запустите portal_api.py и укажите URL туннеля.";
+        if (isRemoteAdminHost()) showApiField();
+      });
+    })();
+  </script>
+</body>
+</html>

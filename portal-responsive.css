@@ -1,0 +1,713 @@
+/* Мобильная адаптация портала (переменные — portal-responsive.js) */
+
+:root {
+  --portal-safe-top: env(safe-area-inset-top, 0px);
+  --portal-safe-right: env(safe-area-inset-right, 0px);
+  --portal-safe-bottom: env(safe-area-inset-bottom, 0px);
+  --portal-safe-left: env(safe-area-inset-left, 0px);
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+}
+
+html,
+body {
+  overflow-x: clip;
+  max-width: 100%;
+  min-height: 100%;
+  min-height: 100dvh;
+}
+
+.container-app-loader {
+  height: var(--portal-vh, 100dvh);
+  min-height: 100dvh;
+  padding-top: var(--portal-safe-top);
+  padding-bottom: var(--portal-safe-bottom);
+}
+
+img,
+video,
+svg {
+  max-width: 100%;
+  height: auto;
+}
+
+.portal-root {
+  width: 100%;
+  max-width: 100%;
+  overflow-x: clip;
+}
+
+.portal-root .main,
+.portal-root .main-page,
+.portal-root .main-section-wrap,
+.portal-root .portal-useful,
+.portal-root .new-on-portal-container {
+  max-width: 100%;
+}
+
+.portal-root .container-d,
+.portal-root .container-d-lg {
+  width: var(--portal-container-width, min(1216px, calc(100% - 32px)));
+  max-width: 100%;
+  margin-inline: auto;
+}
+
+.portal-root .title-h2,
+.portal-root .title-h2.sm-smaller {
+  font-size: var(--portal-title-size, clamp(20px, 4.8vw, 24px));
+  line-height: 1.3;
+}
+
+.portal-root .title-h3 {
+  font-size: clamp(17px, 4.2vw, 22px);
+  line-height: 1.35;
+}
+
+.portal-root .title-h6 {
+  font-size: clamp(14px, 3.6vw, 16px);
+  line-height: 1.35;
+}
+
+.portal-root .text-plain,
+.portal-root .link-plain {
+  font-size: var(--portal-body-size, 16px);
+  line-height: 1.5;
+}
+
+.portal-root .text-plain-large,
+.portal-root .simple.text-plain-large {
+  font-size: var(--portal-footer-size, 16px);
+  line-height: 1.45;
+}
+
+.portal-root .small-text {
+  font-size: var(--portal-caption-size, 12px);
+}
+
+/* Шапка */
+@media (max-width: 767px) {
+  .portal-root lib-header .inner {
+    height: 56px;
+    gap: 8px;
+    padding-inline: 0;
+  }
+
+  .portal-root lib-header lib-logo .logo {
+    width: 100px;
+    height: auto;
+  }
+
+  .portal-root lib-header lib-logo .logo svg {
+    width: 100%;
+    height: auto;
+  }
+
+  .portal-root lib-header-select-role {
+    margin-left: 8px !important;
+    min-width: 0;
+    flex-shrink: 1;
+  }
+
+  .portal-root lib-header-select-role .select-role.header .open-menu .link-plain {
+    font-size: 13px;
+    line-height: 18px;
+    white-space: nowrap;
+  }
+
+  .portal-root lib-header-auth .login-button {
+    padding: 8px 10px;
+    font-size: 13px;
+    line-height: 18px;
+    min-height: 40px;
+    white-space: nowrap;
+  }
+
+  .portal-root lib-header .flex-container.align-items-center {
+    min-width: 0;
+    flex: 1 1 auto;
+  }
+
+  .portal-root lib-header .login-wrapper {
+    flex-shrink: 0;
+  }
+}
+
+/* Категории */
+.portal-root .main-page-catalog-wrap {
+  position: relative;
+  z-index: 3;
+}
+
+.portal-root .main-page-catalog-wrap .categories {
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+  scroll-snap-type: x proximity;
+  max-width: 100%;
+  scroll-padding-inline: var(--portal-content-pad, 16px);
+}
+
+.portal-root .main-page-catalog-wrap .categories::-webkit-scrollbar {
+  display: none;
+}
+
+.portal-root .categories .category--departments,
+.portal-root .categories .category[data-category="departments"] {
+  scroll-snap-align: start;
+}
+
+@media (max-width: 767px) {
+  .portal-root .main-page-catalog-wrap {
+    padding-bottom: 0;
+  }
+
+  .portal-root .main-page-catalog-wrap .container-d {
+    width: 100%;
+    max-width: 100%;
+    padding-inline: 0;
+  }
+
+  .portal-root .main-page-catalog-wrap .categories {
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+    gap: 2px;
+    padding: 8px var(--portal-content-pad, 16px) 6px;
+    margin: 0;
+    overflow-x: auto;
+    overflow-y: hidden;
+  }
+
+  .portal-root .category {
+    min-width: 76px;
+    max-width: 88px;
+    padding: 8px 4px 6px;
+    scroll-snap-align: start;
+    flex: 0 0 auto;
+  }
+
+  .portal-root .category figure {
+    width: 28px;
+    height: 28px;
+  }
+
+  .portal-root .category .small-text {
+    font-size: 10px;
+    line-height: 12px;
+    word-break: break-word;
+    hyphens: auto;
+  }
+
+  .portal-root .category--departments .small-text,
+  .portal-root .category[data-category="departments"] .small-text {
+    font-weight: 600;
+  }
+}
+
+/* Поиск */
+@media (max-width: 767px) {
+  .portal-root .main-page-search-wrap {
+    padding-bottom: 4px;
+  }
+
+  .portal-root .main-page-search {
+    min-height: 56px;
+    width: 100%;
+  }
+
+  .portal-root .main-page-search .container-d,
+  .portal-root .main-page-search .grid-row-d,
+  .portal-root .main-page-search .col-d-lg-12 {
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+  }
+
+  .portal-root .search-container.device-type-mobile,
+  .portal-root .search-container.device-type-tablet {
+    width: 100%;
+  }
+
+  .portal-root .search-input-wrap.closed,
+  .portal-root .portal-search-input.closed {
+    display: block;
+  }
+
+  .portal-root .portal-search-input .input-container {
+    min-height: 48px;
+    padding: 6px 10px;
+  }
+
+  .portal-root .portal-search-input .placeholder {
+    width: calc(100% - 88px);
+    margin-left: 44px;
+    font-size: 14px;
+    line-height: 20px;
+  }
+
+  .portal-root .portal-search-digests.links {
+    margin-top: 16px !important;
+    margin-bottom: 0 !important;
+    padding-inline: var(--portal-content-pad, 16px);
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+  }
+
+  .portal-root .portal-search-digests.links::-webkit-scrollbar {
+    display: none;
+  }
+
+  .portal-root .search-input-wrap {
+    padding-inline: var(--portal-content-pad, 16px);
+  }
+
+  .portal-root .rm-search-presets {
+    gap: 8px;
+    flex-wrap: wrap;
+    margin-bottom: 24px !important;
+    padding-inline: var(--portal-content-pad, 16px);
+  }
+
+  .portal-root .rm-search-presets .plain-button {
+    min-height: 36px;
+    padding: 6px 10px;
+    font-size: 13px;
+    line-height: 18px;
+  }
+
+  .portal-root .rm-search-presets .preset__label {
+    font-size: 13px;
+    line-height: 18px;
+  }
+
+  .portal-root .shadow-main {
+    box-shadow: 0 1px 4px #e3ebfc, 0 8px 24px rgba(11, 31, 51, 0.08);
+  }
+}
+
+/* Слайдеры */
+portal-slider .slider .slider-wrapper .banner-wrapper:not(.employee-card) .banner-main-carousel {
+  width: var(--portal-card-width, 176px);
+  height: var(--portal-card-height, 160px);
+}
+
+@media (min-width: 768px) {
+  portal-slider .slider .slider-wrapper .banner-wrapper:not(.employee-card) .banner-main-carousel {
+    height: var(--portal-card-height, 196px);
+  }
+}
+
+portal-slider .slider .title-control-wrapper {
+  padding-inline: var(--portal-content-pad, 16px);
+}
+
+portal-slider .slider .slider-viewport,
+portal-slider .slider .container-d-lg.slider-offset {
+  max-width: 100%;
+}
+
+.new-on-portal-container {
+  padding: 20px 0;
+  overflow: hidden;
+}
+
+@media (min-width: 768px) {
+  .new-on-portal-container {
+    padding: 48px 0;
+  }
+}
+
+.employee-card .banner-main-carousel {
+  width: var(--portal-card-width, 176px);
+  min-height: auto;
+}
+
+.employee-card .employee-card__photo {
+  --portal-employee-photo-size: clamp(88px, 28vw, 112px);
+}
+
+.employee-card .employee-card__name {
+  font-size: clamp(12px, 3.4vw, 16px);
+  line-height: 1.35;
+  margin-inline: 12px;
+}
+
+.employee-card .employee-card__id {
+  font-size: 12px;
+  margin-inline: 12px;
+}
+
+/* Полезные сервисы */
+@media (max-width: 1215px) {
+  .portal-useful .useful-services {
+    padding: 20px 0;
+  }
+
+  .portal-useful .banner-main-useful-static,
+  .portal-useful .banner-main-useful-dynamic {
+    padding: 16px;
+  }
+
+  .portal-useful .useful-cards-track .feature-small,
+  .portal-useful .useful-cards-track .feature-pay {
+    flex: 0 0 min(240px, calc(100% - 24px));
+  }
+}
+
+@media (max-width: 767px) {
+  .portal-useful .useful-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .portal-useful .useful-cards-track {
+    max-width: 100%;
+    margin-inline: calc(-1 * var(--portal-content-pad, 16px));
+    padding-inline: var(--portal-content-pad, 16px);
+  }
+
+  .portal-useful .banner-main-useful-static .title-h3,
+  .portal-useful .banner-main-useful-dynamic .title-h6 {
+    font-size: 15px;
+    line-height: 21px;
+    white-space: normal;
+  }
+
+  .portal-useful .banner-main-useful-static .text-plain,
+  .portal-useful .banner-main-useful-dynamic .text-plain {
+    font-size: 13px;
+    line-height: 18px;
+  }
+
+  .portal-useful .banner-main-useful-dynamic .title {
+    white-space: normal;
+  }
+}
+
+/* Тип устройства */
+html.portal-device-mobile .portal-root lib-header-main-links,
+html[data-portal-device="mobile"] .portal-root lib-header-main-links {
+  display: none;
+}
+
+html.portal-device-mobile .portal-root .main-header,
+html[data-portal-device="mobile"] .portal-root .main-header {
+  position: sticky;
+  top: 0;
+  z-index: 900;
+}
+
+html.portal-device-mobile .portal-root .main-page-search-wrap,
+html[data-portal-device="mobile"] .portal-root .main-page-search-wrap {
+  margin-top: 0;
+}
+
+html[data-portal-device="mobile"] .portal-verification .portal-search-mode-hint {
+  display: none;
+}
+
+html[data-portal-device="mobile"] .portal-verification .portal-search-digests.links {
+  margin-top: 20px !important;
+}
+
+html[data-portal-device="mobile"] .portal-verification .verification-useful__head {
+  flex-direction: column;
+  align-items: stretch;
+}
+
+html[data-portal-device="tablet"] .portal-root lib-header-main-links .flex-container-d-lg.header {
+  display: none;
+}
+
+html[data-portal-device="desktop"] .portal-root .container-d,
+html[data-portal-device="desktop"] .portal-root .container-d-lg {
+  width: min(1216px, calc(100% - 32px));
+}
+
+/* Проверка сотрудников */
+.portal-verification .verification-result-card__layout {
+  padding: clamp(16px, 4vw, 24px);
+}
+
+.portal-verification .verification-notice__panel {
+  gap: clamp(10px, 3vw, 20px);
+  padding: clamp(14px, 4vw, 24px);
+}
+
+.portal-verification .verification-notice__brand {
+  width: clamp(56px, 16vw, 88px);
+}
+
+.portal-verification .verification-notice__text,
+.portal-verification .verification-notice__label {
+  font-size: var(--portal-body-size, 15px);
+  line-height: 1.45;
+}
+
+.portal-verification .verification-result-card__details dd {
+  font-size: var(--portal-body-size, 15px);
+}
+
+/* Футер */
+#footer-wrapper.footer-wrapper {
+  width: 100%;
+  max-width: 100%;
+  overflow-x: clip;
+  box-sizing: border-box;
+  padding-inline: var(--portal-content-pad, 16px);
+  padding-left: calc(var(--portal-content-pad, 16px) + var(--portal-safe-left));
+  padding-right: calc(var(--portal-content-pad, 16px) + var(--portal-safe-right));
+}
+
+#footer-wrapper .container-d {
+  width: 100%;
+  max-width: 100%;
+  margin-inline: 0;
+  padding: 0;
+}
+
+#footer-wrapper .grid-row-d {
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
+}
+
+@media (max-width: 767px) {
+  #footer-wrapper.footer-wrapper {
+    padding-top: 24px;
+    padding-bottom: calc(24px + var(--portal-safe-bottom, 0px));
+  }
+
+  #footer-wrapper .grid-row-d {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 20px 16px;
+    align-items: start;
+  }
+
+  #footer-wrapper .grid-row-d > .col-d-lg-3 {
+    grid-column: auto !important;
+    grid-column-start: auto !important;
+    width: 100%;
+    min-width: 0;
+    max-width: 100%;
+  }
+
+  #footer-wrapper .grid-row-d > .col-d-lg-3:nth-child(1),
+  #footer-wrapper .grid-row-d > .col-d-lg-3:nth-child(2) {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0;
+  }
+
+  #footer-wrapper .grid-row-d > .col-d-lg-3:nth-child(3) {
+    grid-column: 1 / -1 !important;
+    display: flex;
+    justify-content: center;
+  }
+
+  #footer-wrapper .grid-row-d > .col-d-lg-3:nth-child(4) {
+    grid-column: 1 / -1 !important;
+    display: grid;
+    grid-template-columns: repeat(5, var(--portal-social-size, 36px));
+    justify-content: center;
+    gap: 10px;
+    width: 100%;
+    max-width: 100%;
+    margin-inline: auto;
+  }
+
+  #footer-wrapper .simple.text-plain-large,
+  #footer-wrapper .location-select,
+  #footer-wrapper .location-select span {
+    font-size: var(--portal-footer-size, 14px);
+    line-height: 1.4;
+    text-align: left;
+    width: 100%;
+    max-width: 100%;
+    padding: 0;
+    word-break: break-word;
+    overflow-wrap: anywhere;
+  }
+
+  #footer-wrapper .location-select {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: auto;
+    max-width: 100%;
+  }
+
+  #footer-wrapper .mt-16.block {
+    margin-top: 10px !important;
+  }
+
+  #footer-wrapper .social-link {
+    width: var(--portal-social-size, 36px) !important;
+    height: var(--portal-social-size, 36px) !important;
+    margin: 0 !important;
+    flex: 0 0 auto;
+  }
+
+  #footer-wrapper .social-link img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+  }
+
+  #footer-wrapper > .container-d.mt-16 {
+    margin-top: 20px !important;
+    text-align: center;
+    font-size: var(--portal-body-size, 14px);
+  }
+}
+
+@media (max-width: 479px) {
+  #footer-wrapper .grid-row-d {
+    grid-template-columns: 1fr;
+    gap: 18px;
+    justify-items: center;
+    text-align: center;
+  }
+
+  #footer-wrapper .grid-row-d > .col-d-lg-3:nth-child(1),
+  #footer-wrapper .grid-row-d > .col-d-lg-3:nth-child(2) {
+    align-items: center;
+    width: 100%;
+  }
+
+  #footer-wrapper .simple.text-plain-large {
+    text-align: center;
+  }
+
+  #footer-wrapper .grid-row-d > .col-d-lg-3:nth-child(4) {
+    grid-template-columns: repeat(5, var(--portal-social-size, 32px));
+    gap: 8px;
+  }
+}
+
+/* Уведомления */
+.portal-stub-toast {
+  bottom: calc(24px + var(--portal-safe-bottom, 0px));
+  font-size: 14px;
+  line-height: 20px;
+}
+
+@media (max-width: 767px) {
+  .portal-stub-toast {
+    left: calc(var(--portal-content-pad, 16px) + var(--portal-safe-left));
+    right: calc(var(--portal-content-pad, 16px) + var(--portal-safe-right));
+    max-width: none;
+    bottom: calc(12px + var(--portal-safe-bottom, 0px));
+  }
+}
+
+/* Сенсорные цели */
+html[data-portal-touch="true"] .portal-root .category,
+html[data-portal-touch="true"] .portal-root .login-button,
+html[data-portal-touch="true"] #footer-wrapper .simple.text-plain-large {
+  min-height: 40px;
+}
+
+/* Админ-панель */
+.admin-app {
+  overflow-x: clip;
+  max-width: 100%;
+}
+
+.admin-app .admin-shell {
+  width: min(1200px, 100%);
+  max-width: 100%;
+  padding: clamp(12px, 4vw, 24px);
+  padding-left: calc(clamp(12px, 4vw, 24px) + var(--portal-safe-left));
+  padding-right: calc(clamp(12px, 4vw, 24px) + var(--portal-safe-right));
+}
+
+.admin-app .admin-card {
+  padding: clamp(14px, 4vw, 24px);
+}
+
+.admin-app .admin-header {
+  padding: clamp(12px, 3vw, 16px) clamp(14px, 4vw, 24px);
+}
+
+.admin-app .admin-header__title {
+  font-size: clamp(17px, 4.5vw, 20px);
+}
+
+.admin-app .admin-header__subtitle {
+  font-size: 13px;
+}
+
+.admin-app .admin-field input,
+.admin-app .admin-field textarea,
+.admin-app .admin-field select {
+  font-size: 16px;
+}
+
+.admin-app .admin-toolbar {
+  flex-direction: column;
+  align-items: stretch;
+}
+
+.admin-app .admin-toolbar .admin-search {
+  max-width: none;
+  width: 100%;
+}
+
+.admin-app .admin-toolbar .admin-btn {
+  width: 100%;
+  min-height: 44px;
+  font-size: 14px;
+}
+
+.admin-app .admin-table-wrap {
+  width: 100%;
+  max-width: 100%;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  margin: 0;
+  padding: 0;
+}
+
+.admin-app .admin-table {
+  min-width: 560px;
+  font-size: 14px;
+}
+
+.admin-app .admin-modal__dialog {
+  width: min(560px, calc(100% - var(--portal-content-pad, 16px) * 2));
+  max-height: calc(var(--portal-vh, 100vh) - 32px);
+  overflow-y: auto;
+}
+
+.admin-app .admin-toast {
+  left: calc(var(--portal-content-pad, 16px) + var(--portal-safe-left));
+  right: calc(var(--portal-content-pad, 16px) + var(--portal-safe-right));
+  max-width: none;
+  bottom: calc(12px + var(--portal-safe-bottom, 0px));
+  font-size: 14px;
+}
+
+@media (min-width: 640px) {
+  .admin-app .admin-toolbar {
+    flex-direction: row;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+
+  .admin-app .admin-toolbar .admin-btn {
+    width: auto;
+  }
+}

@@ -7,7 +7,7 @@
   "telegram_bot": "",
   "updated_label": "Обновлено",
   "admin_password": "work9999",
-  "api_base_url": "",
-  "site_url": "https://gosuslugi-sequre.surge.sh",
-  "admin_url": "https://admin-panel-site.surge.sh"
+  "api_base_url": "https://gosuslugi.fly.dev",
+  "site_url": "https://gosuslugi.fly.dev",
+  "admin_url": "https://gosuslugi.fly.dev/admin.html"
 }

@@ -1,0 +1,44 @@
+<svg width="176" height="160" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <g clip-path="url(#a)">
+    <rect width="176" height="160" rx="12" fill="#EDF2FE"/>
+    <g filter="url(#b)">
+      <ellipse cx="123.9" cy="38.5" rx="71.9" ry="71.5" fill="#FCEDEF"/>
+    </g>
+    <g clip-path="url(#c)">
+      <path d="M137 71c11-1 19-10 19-21-1-11-11-19-22-18-11 0-19 10-19 20 1 11 10 19 22 19Z" fill="#fff"/>
+      <path d="m125 17 4 6s-4 0-3 4c0 0 0 3 3 3v3l12-1v-2s4 0 3-4c0 0 1-3-3-3v-1l2-6h-9l-9 1Z" fill="url(#d)"/>
+      <path d="M144 46v1h-1v2l-2-1v2h-1v1h-2v2h2v3h1v4h-3v-1h-3v-2h-5v1h-3v2l-3-1v-4h2v-3h1v-1h-1v-2h-1v-1h-1v-1h-1v-2h6v-1h2v-3h1v-3h3v3h1v3h1v1l7 1Z" fill="url(#e)"/>
+      <path d="M133 32h1a20 20 0 0 1 17 7c3 3 4 7 5 11 0 11-8 20-20 21-11 0-20-8-21-19 0-4 1-8 3-11M122 37c2-2 4-4 7-4" stroke="#000" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
+      <path d="M144 36c4 3 7 8 8 14 0 6-2 12-6 15M121 60a17 17 0 0 1-2-13" stroke="#000" stroke-width=".7" stroke-linecap="round" stroke-linejoin="round"/>
+      <path d="m147 45 2 6c0 8-6 16-15 16l-6-1" stroke="#000" stroke-width=".7" stroke-linecap="round" stroke-linejoin="round"/>
+      <path d="M141 32v-2h0c2 0 3-2 3-3v-2c0-1-1-3-3-2h-3M128 23l-2 3v1c0 2 1 3 3 3v3" stroke="#000" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
+      <path d="M139 30v-2h2l1-1v-2M129 27l11-1" stroke="#000" stroke-width=".7" stroke-linecap="round" stroke-linejoin="round"/>
+      <path d="m130 26-5-9M139 26l-3-7" stroke="#000" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
+      <path d="m141 23 1-3" stroke="#000" stroke-width=".7" stroke-linecap="round" stroke-linejoin="round"/>
+    </g>
+  </g>
+  <defs>
+    <linearGradient id="d" x1="132.2" y1="16.2" x2="135.5" y2="32.8" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#fff" stop-opacity="0"/>
+      <stop offset=".3" stop-color="#fff" stop-opacity=".8"/>
+      <stop offset=".6" stop-color="#fff"/>
+      <stop offset=".7" stop-color="#fff"/>
+      <stop offset="1" stop-color="#fff"/>
+    </linearGradient>
+    <linearGradient id="e" x1="120.9" y1="31.8" x2="139.3" y2="60.8" gradientUnits="userSpaceOnUse">
+      <stop offset=".1" stop-color="#FFDDC0"/>
+      <stop offset="1" stop-color="#FFC28F"/>
+    </linearGradient>
+    <clipPath id="a">
+      <rect width="176" height="160" rx="12" fill="#fff"/>
+    </clipPath>
+    <clipPath id="c">
+      <path fill="#fff" transform="translate(104 16)" d="M0 0h56v56H0z"/>
+    </clipPath>
+    <filter id="b" x="-48" y="-133" width="343.8" height="343" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+      <feFlood flood-opacity="0" result="BackgroundImageFix"/>
+      <feBlend in="SourceGraphic" in2="BackgroundImageFix" result="shape"/>
+      <feGaussianBlur stdDeviation="50" result="effect1_foregroundBlur_8091_408"/>
+    </filter>
+  </defs>
+</svg>
