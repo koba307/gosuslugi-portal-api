@@ -1,6 +1,6 @@
 # Fly.io deploy from GitHub
-app = "portal-api-gosuslugi"
-primary_region = "ams"
+app = "gosuslugi-portal-api"
+primary_region = "fra"
 
 [build]
   dockerfile = "Dockerfile"
